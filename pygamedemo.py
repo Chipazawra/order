@@ -1,7 +1,7 @@
 import pygame
 import sys
  
-FPS = 120
+FPS = 30
 WIN_WIDTH = 400
 WIN_HEIGHT = 100
 WHITE = (255, 255, 255)
