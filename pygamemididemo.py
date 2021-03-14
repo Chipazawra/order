@@ -1,6 +1,8 @@
 import pygame
 import pygame.midi
 from time import sleep
+import random
+import os
 
 def midiExample():
     # Things to consider when using pygame.midi:
@@ -29,8 +31,14 @@ def midiExample():
 
         for i in range(0, 127):
             midi_out.note_on(i,127)
-            sleep(.5)
             midi_out.note_off(i,127)
+            array = [i for i in range(127)]
+            random.shuffle(array)
+            print(array)
+            os.system('clear')
+            sleep(.2)
+
+
 
     finally:
         del midi_out
