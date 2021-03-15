@@ -13,7 +13,7 @@ random.shuffle(array)
 
 clock = pygame.time.Clock()
 sc = pygame.display.set_mode(
-    (WIN_WIDTH, WIN_HEIGHT))
+        (WIN_WIDTH, WIN_HEIGHT))
  
 x = 0
 # выравнивание по центру по вертикали
