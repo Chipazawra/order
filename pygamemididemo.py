@@ -23,7 +23,7 @@ def midiExample():
     pygame.init()
     pygame.midi.init()
     pygame.midi.get_device_info(0)
-    port = 2 #pygame.midi.get_default_output_id()
+    port = pygame.midi.get_default_output_id()
     print ("using output_id :%s:" % port)
     midi_out = pygame.midi.Output(port, 1)
     try:
@@ -35,7 +35,6 @@ def midiExample():
             array = [i for i in range(127)]
             random.shuffle(array)
             print(array)
-            os.system('clear')
             sleep(.2)
 
 
