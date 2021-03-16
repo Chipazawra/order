@@ -1,6 +1,7 @@
 import pygame
 import pygame.midi
 import random
+import datetime
 
 FPS = 120
 WIN_WIDTH = 900
@@ -33,12 +34,12 @@ screen.fill(WHITE)
 
 for i in range(len(array) - 1):
     for j in range(len(array) - 1 - i):
-        
+        t1 = datetime.datetime.now()
         note = array[j] 
-        midi_out.note_on(note,127)
+        #midi_out.note_on(note,127)
         screen.fill(WHITE)
         for element in array:
-                text = myfont.render('index: %d value: %d' % (j, array[j]), True, (0, 0, 0))
+                textIndexValue = myfont.render('index: %d value: %d' % (j, array[j]), True, (0, 0, 0))
                 rect = pygame.Rect(x, y, 6, -element * 2)
                 rect.normalize()
                 COLOR = GREEN if element == array[j] else ORANGE
@@ -46,16 +47,21 @@ for i in range(len(array) - 1):
                 x = x + 7
         
         if array[j] > array[j + 1]:
+            #midi_out.note_off(note, 127)
             array[j], array[j + 1] = array[j + 1], array[j]
+            note = array[j] 
+            #midi_out.note_on(note,127)
         
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                midi_out.note_off(note, 127)
+                #midi_out.note_off(note, 127)
                 pygame.quit()
-        
-        midi_out.note_off(note, 127)
+        t2 = datetime.datetime.now()
+        textFPSFrameTime = myfont.render('FPS: %d Frame coast: %f sec.' % (FPS, (t2 - t1).microseconds / 1000000), True, (0, 0, 0))
+        #midi_out.note_off(note, 127)
         clock.tick(FPS)
-        screen.blit(text, [10,10])
+        screen.blit(textIndexValue, [10,10])
+        screen.blit(textFPSFrameTime, [10,40])
         pygame.display.update()
         x = 0
 
