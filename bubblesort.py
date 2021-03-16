@@ -2,7 +2,7 @@ import pygame
 import pygame.midi
 import random
 
-FPS = 300
+FPS = 120
 WIN_WIDTH = 900
 WIN_HEIGHT = 600
 WHITE = (255, 255, 255)
@@ -15,7 +15,7 @@ pygame.init()
 pygame.midi.init()
 pygame.font.init()
 
-midi_port = 2 #pygame.midi.get_default_output_id()
+midi_port = pygame.midi.get_default_output_id()
 print ("using output_id :%s:%s" % (midi_port, pygame.midi.get_device_info(midi_port)))
 midi_out = pygame.midi.Output(midi_port, 1)
 midi_out.set_instrument(25)
