@@ -3,12 +3,12 @@ import pygame.midi
 import random
 import datetime
 
-FPS = 120
-WIN_WIDTH = 900
-WIN_HEIGHT = 600
+FPS = 360
+WIN_WIDTH = 1600
+WIN_HEIGHT = 900
 WHITE = (255, 255, 255)
 
-array = [i for i in range(127)] 
+array = [i for i in range(600)] 
 random.shuffle(array)
 pygame.init()
 pygame.midi.init()
@@ -54,8 +54,17 @@ def QuickSort(array, l, r, screen, pygame, clock):
 
 def DrawArray(pygame, screen, array, q, i, j, l, r):
     t1 = datetime.datetime.now()
-    x = 6
-    y = (pygame.display.get_window_size()[1] // 3) * 2
+    
+    WIN_WIDTH = pygame.display.get_window_size()[0]
+    WIN_HEIGHT = pygame.display.get_window_size()[1]
+    
+    x = 0
+    y = WIN_HEIGHT
+    
+    rectwidth =  (WIN_WIDTH - len(array)) // len(array)
+    arraywidth = (rectwidth + 1) * len(array) 
+    x = (WIN_WIDTH - arraywidth) // 2
+
     ORANGE = (255, 150, 100)
     GREEN = (67, 171, 134)
     RED = (255, 0, 0)
@@ -67,7 +76,8 @@ def DrawArray(pygame, screen, array, q, i, j, l, r):
     textInfo = myfont.render('pivot: %d l.index: %d r.index:%d' % (q, l, r), True, BLACK)
     
     for element in array:
-        rect = pygame.Rect(x, y, 6, -element * 2)
+        rectheight = WIN_HEIGHT * element / len(array)
+        rect = pygame.Rect(x, y, rectwidth, -rectheight)
         rect.normalize()
         if element == array[q]:
             COLOR = RED
@@ -81,12 +91,12 @@ def DrawArray(pygame, screen, array, q, i, j, l, r):
         pygame.draw.rect(screen, COLOR, rect)
         
         if element == array[l]:
-            pygame.draw.line(screen, BLACK, (x, y), (x, -element * 2)) 
+            pygame.draw.line(screen, BLACK, (x, y), (x, -rectheight)) 
 
         if element == array[r]:
-            pygame.draw.line(screen, BLACK, (x + 6, y), (x + 6, -element * 2))
+            pygame.draw.line(screen, BLACK, (x + rectwidth, y), (x + rectwidth, -rectheight))
 
-        x = x + 7
+        x = x + (rectwidth + 1)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
