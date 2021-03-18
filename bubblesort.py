@@ -58,7 +58,7 @@ for i in range(len(array) - 1):
             if event.type == pygame.QUIT:
                 #midi_out.note_off(note, 127)
                 pygame.quit()
-        textFPSFrameTime = myfont.render('FPS: %d Frame coast: %f sec.' % (FPS, (datetime.datetime.now() - t1).microseconds / 1000000), True, (0, 0, 0))
+        textFPSFrameTime = myfont.render('FPS: %d Frame cost: %f sec.' % (FPS, (datetime.datetime.now() - t1).microseconds / 1000000), True, (0, 0, 0))
         #midi_out.note_off(note, 127)
         screen.blit(textInfo, [10,10])
         screen.blit(textFPSFrameTime, [10,40])
