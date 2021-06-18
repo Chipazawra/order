@@ -8,3 +8,4 @@ Windows:
 4) \py\.venv\Scripts\activate.ps1
 5) pip3 install -r requirements.txt
 6) python order\bubblesort.py
+   python order\quicksort.py
