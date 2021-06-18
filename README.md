@@ -1,7 +1,8 @@
-ORDER visualisation
+##ORDER visualisation
 run with terminal:
 
-Windows:
+##Windows:
+
 mkdir yourdir
 cd yourdir
 git clone https://github.com/Chipazawra/order
