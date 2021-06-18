@@ -9,3 +9,6 @@ Windows:
 5) pip3 install -r requirements.txt
 6) python order\bubblesort.py
    python order\quicksort.py
+   
+Inline-style: 
+![alt text](https://github.com/Chipazawra/order/edit/master/guide.png "guide")
