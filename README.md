@@ -3,7 +3,7 @@ run with terminal:
 
 ## Windows:
 
-```python
+```powershell
 mkdir yourdir
 cd yourdir
 git clone https://github.com/Chipazawra/order
