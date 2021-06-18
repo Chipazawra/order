@@ -10,5 +10,4 @@ Windows:
 6) python order\bubblesort.py
    python order\quicksort.py
    
-Inline-style: 
-![alt text](https://github.com/Chipazawra/order/edit/master/guide.gif "guide")
+![](guide.gif)
